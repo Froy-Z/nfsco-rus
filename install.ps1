@@ -67,12 +67,12 @@ function Find-RusZip {
     }
     Add-Type -AssemblyName System.Windows.Forms
     $dlg = New-Object System.Windows.Forms.OpenFileDialog
-    $dlg.Title = 'Выберите архив "Русификатор текста с поддержкой субтитров" 2.7 (zip)'
+    $dlg.Title = 'Выберите zip-архив русификатора 2.7 от Madevi (с субтитрами или без)'
     $dlg.Filter = 'ZIP-архив (*.zip)|*.zip'
     while ($true) {
         if ($dlg.ShowDialog() -ne [System.Windows.Forms.DialogResult]::OK) { Fail 'Архив русификатора не выбран.' }
         if (Test-RusZip $dlg.FileName) { return $dlg.FileName }
-        [System.Windows.Forms.MessageBox]::Show("Это не тот архив. Нужен «Русификатор текста с поддержкой субтитров» версии 2.7 в формате zip (ссылка в README).", 'Русификатор NFSCO') | Out-Null
+        [System.Windows.Forms.MessageBox]::Show("Это не тот архив. Нужен zip-архив русификатора 2.7 от Madevi (с субтитрами или без, ссылка в README).", 'Русификатор NFSCO') | Out-Null
     }
 }
 
